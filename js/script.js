@@ -1,14 +1,22 @@
-const getPokemons = () => fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-    .then(response => {return response.json();})
+const getKantoPokemon = () => fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    .then(response => response.json())
     .then(data => {
-        const arr = Object.values(data.results);
+        data.results.forEach(pokemon => {
+            getPokemonData(pokemon)
+        });
+    })
+    .catch(err => {
+        console.error("Request Failed", err);
+    })
 
-        console.log(arr);
-        
-        arr.foreach(row =>
-            console.log(row.url)
-        );
-    });
+function getPokemonData(pokemon) {
+    let url = pokemon.url;
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+}
 
 const pokemonDiv = document.querySelector("div.pokemon-table");
 
@@ -42,4 +50,4 @@ const createPokemonTable = () => {
 
 }
 
-getPokemons();
+getKantoPokemon();
