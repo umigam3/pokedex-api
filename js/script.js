@@ -1,8 +1,11 @@
-const getKantoPokemon = () => fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+let dataArray = [];
+
+const getData = () => fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then(response => response.json())
     .then(data => {
-        data.results.forEach(pokemon => {
-            getPokemonData(pokemon)
+        createMainTable();
+        data.results.forEach(singleObject => {
+            getPokemonData(singleObject)
         });
     })
     .catch(err => {
@@ -14,40 +17,56 @@ function getPokemonData(pokemon) {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        //dataArray.push(data);
+        addElement(data);
     })
 }
 
-const pokemonDiv = document.querySelector("div.pokemon-table");
+function createMainTable() {
 
-let tableHeaders = ["Sprite", "Name", "Primary Type", "Secondary Type"]
+    let content = document.querySelector(".content");
+    
+    let mainTable = document.createElement("table");
+    mainTable.classList.add("mainTable");
+    content.appendChild(mainTable);
 
-const createPokemonTable = () => {
-
-    let pokemonTable = document.createElement('table');
-    pokemonTable.className = 'pokemonTable';
-
-    let pokemonTableHead = document.createElement('thead');
-    pokemonTableHead.className = 'pokemonTableHead';
-
-    let pokemonTableHeadRow = document.createElement('tr');
-    pokemonTableHeadRow.className = 'pokemonTableHeadRow'
+    let headerTr = document.createElement("tr");
+    headerTr.classList.add("headerTr");
+    mainTable.appendChild(headerTr);
+    
+    tableHeaders = ["Sprite","#", "Name", "Type", "HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"];
 
     tableHeaders.forEach(header => {
-        let pokemonHeader = document.createElement('th')
-        pokemonHeader.innerText = header
-        pokemonTableHeadRow.append(pokemonHeader)
-    })
-
-    pokemonTableHead.append(pokemonTableHeadRow);
-    pokemonTable.append(pokemonTableHead);
-    
-    let pokemonTableBody = document.createElement('tbody')
-    pokemonTableBody.className = "pokemonTableBody"
-    pokemonTable.append(pokemonTableBody)
-    
-    pokemonDiv.append(pokemonTable)
+        let th = document.createElement("th");
+        th.innerHTML = header;
+        headerTr.appendChild(th);
+    });
 
 }
 
-getKantoPokemon();
+function addElement(pokemon) {
+    let tableBody = document.querySelector(".mainTable");
+
+    let dataRow = document.createElement("tr");
+    dataRow.classList.add("dataRow");
+    tableBody.appendChild(dataRow);
+
+    // Data Structure
+    pokemonData = [pokemon.id, pokemon.name, pokemon.types[0].type.name, pokemon.stats[0].base_stat, pokemon.stats[1].base_stat, pokemon.stats[2].base_stat, pokemon.stats[3].base_stat,
+        pokemon.stats[4].base_stat,pokemon.stats[5].base_stat];
+
+    let td = document.createElement("td");
+    td.appendChild(document.createElement('img')).src = pokemon.sprites.versions['generation-vii']['icons'].front_default;
+    dataRow.appendChild(td);
+
+    pokemonData.forEach(attribute => {
+        let td = document.createElement("td");
+        td.innerHTML = attribute;
+        dataRow.appendChild(td);
+    })
+}
+
+window.onload = function() {
+    getData();
+}
+   
