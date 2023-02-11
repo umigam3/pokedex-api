@@ -74,9 +74,9 @@ function addElement(pokemon) {
     pokemonStats = [totalStats, pokemon.stats[0].base_stat, pokemon.stats[1].base_stat, pokemon.stats[2].base_stat, pokemon.stats[3].base_stat,
         pokemon.stats[4].base_stat,pokemon.stats[5].base_stat];
 
-    pokemonStats.forEach(stat => {
+    pokemonStats.forEach(baseStat => {
         let td = document.createElement("td");
-        td.innerHTML = stat;
+        td.innerHTML = baseStat;
         dataRow.appendChild(td);
     })
 }
