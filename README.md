@@ -7,3 +7,5 @@ Welcome to my Pokémon Database. I made this Pokédex mainly to learn more about
 In addition to that, I'm making this little project to get knowledge about structuring HTML pages and improving them with CSS.
 
 Link: https://umigam3.github.io/pokedex-api/
+
+<img class="main-header__image" src="/img/pidgeot.gif" width="200">
