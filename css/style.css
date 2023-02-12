@@ -4,58 +4,54 @@
     box-sizing: border-box;
 }
 
-html {
-    background: rgb(0,36,97);
-    background: #6096B4;
+@font-face {
+    font-family: "pokemon";
+    src: url("/fonts/Pokemon\ Solid.ttf");
 }
-
-table {
-    width: 100%;
-}
-
-table, th, td {
-    border-collapse: collapse;
-    color: black;
-}
-
-th {
-    padding: 5px;
-    height: 5vh;
-    background-color: #EEE9DA;
-    color: black;
-    text-align: center !important;
-}
-
-td {
-    padding: 5px;
-    text-align: center;
-}
-
-th, td {
-    border-bottom: 1px solid #ddd;
-}
-
-tr:nth-child(even) {background-color: #93BFCF;}
-
-tr:hover {background-color: #BDCDD6;}
 
 .main-header {
-    height: 20vh;
-    background-color: #181716;
+    height: 15vh;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    overflow: hidden;
-
 }
 
 .main-header__title {
-    color: white;
+    margin-left: 2%;
+    font-family: pokemon;
 }
 
-.content {
-    width: 60%;
-    margin: 0 auto;
+.mainTable {
+    width: 100%;
+}
+
+td, th {
+    text-align: center;
+}
+
+.content__search {
+    text-align: center;
+}
+
+.content__searchbar {
+    margin: 2%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }
 
 .type-icon {
