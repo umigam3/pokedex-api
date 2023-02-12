@@ -110,7 +110,6 @@ function insertTypes(types) {
 }
 
 window.onload = function() {
-
     getData();
 }
    
