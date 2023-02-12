@@ -7,20 +7,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
 
 body {
-    background-color: #1E6356;
+    background-color: white;
     font-family: 'Raleway', sans-serif;
 }
 
 .main-header {
     height: 15vh;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(40,40,40,1) 100%);
+    overflow: hidden;
 }
 
 .main-header__title {
-    margin-left: 2%;
     color: white;
+    margin: 0 5%;
+}
+
+.main-header__image {
+    width: 200px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 50px;
+}
+
+.navigation-bar {
+    margin: 0 auto;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.navigation-bar__items {
 }
 
 .mainTable {
@@ -49,16 +81,14 @@ tr:nth-child(odd) {
 
 tr:hover {background-color: #80B9AF;}
 
-.main-content {
-    margin: 0 auto;
-    width: 80%;
+.content {
     background-color: #1E6356;
+    padding: 2%;
 }
 
 .content__search {
-    text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .content__searchbar {
@@ -69,7 +99,6 @@ tr:hover {background-color: #80B9AF;}
     background-color: #113730;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .content__input {
@@ -81,6 +110,11 @@ tr:hover {background-color: #80B9AF;}
 
 .content__input:focus {
     outline: none;
+}
+
+.content {
+    margin: 0 auto;
+    width: 65%;
 }
 
 /* Extra small devices (phones, 600px and down) */
