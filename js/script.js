@@ -61,6 +61,7 @@ function addElement(pokemon) {
     dataRow.appendChild(td);
     
     td = document.createElement("td");
+    td.classList.add('pokemon-name');
     let nameFormatted = capitalizeString(pokemon.name);
     td.innerHTML = nameFormatted;
     dataRow.appendChild(td);
@@ -108,6 +109,41 @@ function insertTypes(types) {
     })
 
 }
+
+function search() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchBar");
+    filter = input.value.toUpperCase();
+    tr = document.getElementsByClassName("dataRow");
+
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByClassName("pokemon-name")[0];
+        console
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    
+
+    console.log(td);
+  
+    // td = tr[2].getElementsByTagName("td")[0];
+    // console.log(td)
+    // if (td) {
+    //     txtValue = td.textContent || td.innerText;
+    //     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    //       tr[i].style.display = "";
+    //     } else {
+    //       tr[i].style.display = "none";
+    //     }
+    //   }
+}
+  
 
 window.onload = function() {
     getData();
