@@ -12,6 +12,7 @@ const getData = () => fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     })
 
 function getPokemonData(pokemon) {
+
     let url = pokemon.url;
     fetch(url)
     .then(response => response.json())
@@ -43,6 +44,7 @@ function createMainTable() {
 }
 
 function addElement(pokemon) {
+
     let tableBody = document.querySelector(".mainTable");
 
     let dataRow = document.createElement("tr");
@@ -63,8 +65,7 @@ function addElement(pokemon) {
     td.innerHTML = nameFormatted;
     dataRow.appendChild(td);
     
-    td = document.createElement("td");
-    td.innerHTML = pokemon.types[0].type.name;
+    insertTypes(pokemon.types);
     dataRow.appendChild(td);
 
     let totalStats = pokemon.stats[0].base_stat + pokemon.stats[1].base_stat + 
@@ -82,6 +83,7 @@ function addElement(pokemon) {
 }
 
 function formatNumber(num, size) {
+
     num = num.toString();
     while (num.length < size) num = "0" + num;
     num = "#" + num;
@@ -89,10 +91,26 @@ function formatNumber(num, size) {
 }
 
 function capitalizeString(string) {
+
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function insertTypes(types) {
+
+    td = document.createElement("td");
+    types.forEach(type => {
+        let span = document.createElement("span");
+        typeFormatted = capitalizeString(type.type.name);
+        span.classList.add('type-icon');
+        span.classList.add('type-' + type.type.name);
+        span.innerHTML = typeFormatted;
+        td.appendChild(span);
+    })
+
+}
+
 window.onload = function() {
+
     getData();
 }
    
