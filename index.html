@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Umigame's Pokedex</title>
 </head>
 <body>
@@ -15,7 +16,10 @@
 
     <main class='content' onload="getData()">
         <section class="content__search">
-            <input class="content__searchbar" type="text" id="searchBar" onkeyup="search()" placeholder="Search..">
+            <div class="content__searchbar">
+                <input class="content__input" type="text" id="searchBar" onkeyup="search()" placeholder="Search..">
+                <i class="fa fa-search"></i>
+            </div>
         </section>
     </main>
 </body>

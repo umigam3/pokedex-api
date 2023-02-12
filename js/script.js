@@ -87,7 +87,6 @@ function formatNumber(num, size) {
 
     num = num.toString();
     while (num.length < size) num = "0" + num;
-    num = "#" + num;
     return num;
 }
 
@@ -116,32 +115,23 @@ function search() {
     filter = input.value.toUpperCase();
     tr = document.getElementsByClassName("dataRow");
 
-    for (i = 0; i < tr.length; i++) {
+    for (i = 0, count = 0; i < tr.length; i++) {
         td = tr[i].getElementsByClassName("pokemon-name")[0];
         console
         if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-          } else {
-            tr[i].style.display = "none";
-          }
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+                if (count++ % 2 == 0) {
+                    tr[i].style.background = "#113730";
+                } else {
+                    tr[i].style.background = "#1E6356";
+                }
+            } else {
+                tr[i].style.display = "none";
+            }
         }
-      }
-    
-
-    console.log(td);
-  
-    // td = tr[2].getElementsByTagName("td")[0];
-    // console.log(td)
-    // if (td) {
-    //     txtValue = td.textContent || td.innerText;
-    //     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    //       tr[i].style.display = "";
-    //     } else {
-    //       tr[i].style.display = "none";
-    //     }
-    //   }
+    }
 }
   
 

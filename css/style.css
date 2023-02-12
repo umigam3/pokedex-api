@@ -4,9 +4,11 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: "pokemon";
-    src: url("/fonts/Pokemon\ Solid.ttf");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+body {
+    background-color: #1E6356;
+    font-family: 'Raleway', sans-serif;
 }
 
 .main-header {
@@ -18,23 +20,67 @@
 
 .main-header__title {
     margin-left: 2%;
-    font-family: pokemon;
+    color: white;
 }
 
 .mainTable {
     width: 100%;
 }
 
-td, th {
+table, td, th {
     text-align: center;
+    color: #d3d3d3;
+    border-collapse: collapse;
+}
+
+th {
+    height: 5vh;
+    color: black;
+    background-color: #1E6356;
+}
+
+tr:nth-child(even) {
+    background-color: #113730;
+}
+
+tr:nth-child(odd) {
+    background-color: #1E6356;
+}
+
+tr:hover {background-color: #80B9AF;}
+
+.main-content {
+    margin: 0 auto;
+    width: 80%;
+    background-color: #1E6356;
 }
 
 .content__search {
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .content__searchbar {
-    margin: 2%;
+    margin: 0.5%;
+    width: 15%;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #113730;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content__input {
+    width: 80%;
+    border: none;
+    background-color: #113730;
+    color: white;
+}
+
+.content__input:focus {
+    outline: none;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -57,7 +103,6 @@ td, th {
 .type-icon {
     display: inline-block;
     width: 66px;
-    margin-bottom: 4px;
     background: #dbdbdb;
     border: 1px solid #a3a3a3;
     border-radius: 4px;
