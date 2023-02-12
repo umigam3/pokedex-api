@@ -1,20 +1,35 @@
 html {
     background: rgb(0,36,97);
-    background: linear-gradient(0deg, rgba(0,36,97,1) 0%, rgba(0,103,137,1) 49%, rgba(0,110,85,1) 100%);
+    background: #088F8F;
 }
 
-table, th, td {
-    color: white;
-}
-
+/* Table Styling */
 table {
-    
     width: 100%;
 }
 
+table, th, td {
+    border-collapse: collapse;
+    color: white;
+}
+
+th {
+    padding: 5px;
+    height: 5vh;
+}
+
 td {
+    padding: 5px;
     text-align: center;
 }
+
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {background-color: #024442;}
+
+tr:hover {background-color: grey;}
 
 .header-img {
     display: block;
@@ -22,6 +37,7 @@ td {
     margin-right: auto;
 }
 
+/* Types Styling */
 .type-icon {
     display: inline-block;
     width: 66px;
