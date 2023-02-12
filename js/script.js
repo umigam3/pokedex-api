@@ -98,12 +98,12 @@ function capitalizeString(string) {
 function insertTypes(types) {
 
     td = document.createElement("td");
+    let first = 1;
     types.forEach(type => {
         let span = document.createElement("span");
-        typeFormatted = capitalizeString(type.type.name);
         span.classList.add('type-icon');
         span.classList.add('type-' + type.type.name);
-        span.innerHTML = typeFormatted;
+        span.innerHTML = type.type.name;
         td.appendChild(span);
     })
 
