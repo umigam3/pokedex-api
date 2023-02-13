@@ -4,11 +4,12 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 
 body {
     background-color: white;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'DM Sans', sans-serif;
+    background-image: url("/img/background.jpg");
 }
 
 .main-header {
@@ -19,6 +20,7 @@ body {
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(40,40,40,1) 100%);
     overflow: hidden;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
 }
 
 .main-header__title {
@@ -56,6 +58,7 @@ li a {
     height: 5vh;
     background-color: #113730;
     border-radius: 10px;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
 }
 
 .navigation-bar__items {
@@ -67,29 +70,38 @@ li a {
 
 table, td, th {
     text-align: center;
-    color: #d3d3d3;
     border-collapse: collapse;
+}
+
+tr th:first-child {
+    border-radius: 10px 0px 0px 0px;
+}
+
+tr th:last-child {
+    border-radius: 0px 10px 0px 0px;
 }
 
 th {
     height: 5vh;
-    color: black;
-    background-color: #1E6356;
+    color: white;
+    background-color: black;
 }
 
 tr:nth-child(even) {
-    background-color: #113730;
+    background-color: white;
 }
 
 tr:nth-child(odd) {
-    background-color: #1E6356;
+    background-color: #d3d3d3;
 }
 
 tr:hover {background-color: #80B9AF;}
 
 .content {
-    background-color: #1E6356;
+    background-color: white;
     padding: 2%;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
 }
 
 .content__search {
