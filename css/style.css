@@ -22,6 +22,7 @@ body {
 }
 
 .main-header__title {
+    padding-bottom: 2.5vh;
     color: white;
     margin: 0 5%;
 }
@@ -31,24 +32,29 @@ body {
 }
 
 ul {
+    width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
-li {
-    display: inline;
-    margin-right: 50px;
+li a {
+    text-decoration: none;
+    color: white;
 }
 
 .navigation-bar {
-    margin: 0 auto;
+    position: absolute;
+    margin: 0 17.5%;
+    top: 12.5vh;
     width: 65%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 5vh;
-    background-color: grey;
+    background-color: #113730;
     border-radius: 10px;
 }
 
@@ -114,6 +120,7 @@ tr:hover {background-color: #80B9AF;}
 
 .content {
     margin: 0 auto;
+    margin-top: 5vh;
     width: 65%;
 }
 
