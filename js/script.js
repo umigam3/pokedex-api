@@ -1,4 +1,5 @@
-const getData = () => fetch('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
+function getData(url) {
+    fetch(url)
     .then(response => response.json())
     .then(data => {
         createMainTable();
@@ -10,6 +11,7 @@ const getData = () => fetch('https://pokeapi.co/api/v2/pokemon?limit=151&offset=
     .catch(err => {
         console.error("Request Failed", err);
     })
+}
 
 function getPokemonData(pokemon) {
 
@@ -111,7 +113,7 @@ function insertTypes(types) {
 
 function search() {
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("searchBar");
+    input = document.getElementById("search-bar");
     filter = input.value.toUpperCase();
     tr = document.getElementsByClassName("tr-data");
 
@@ -134,7 +136,6 @@ function search() {
     }
 }
   
-
 window.onload = function() {
-    getData();
+    getData("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0");
 }
