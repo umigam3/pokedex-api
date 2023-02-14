@@ -4,17 +4,21 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body {
     background: #635985 !important;
-    font-family: 'DM Sans', sans-serif;
 }
 
 .main-header {
     height: 15vh;
     background: #393053;
     box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+}
+
+.main-header__title {
+    font-family: 'Bebas Neue', cursive !important;
+    text-shadow: 2px 2px 8px #000000;
 }
 
 ul {
