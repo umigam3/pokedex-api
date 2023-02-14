@@ -1,4 +1,4 @@
-const getData = () => fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
+const getData = () => fetch('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
     .then(response => response.json())
     .then(data => {
         createMainTable();
@@ -23,14 +23,14 @@ function getPokemonData(pokemon) {
 
 function createMainTable() {
 
-    let content = document.querySelector(".content");
+    let content = document.querySelector(".main-content");
     
     let mainTable = document.createElement("table");
-    mainTable.classList.add("mainTable");
+    mainTable.classList.add("main-table", "w-100", "table");
     content.appendChild(mainTable);
 
     let headerTr = document.createElement("tr");
-    headerTr.classList.add("headerTr");
+    headerTr.classList.add("tr-header");
     mainTable.appendChild(headerTr);
     
     tableHeaders = ["#", "Sprite", "Name", "Type", "Total", "HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"];
@@ -45,10 +45,10 @@ function createMainTable() {
 
 function addElement(pokemon) {
 
-    let tableBody = document.querySelector(".mainTable");
+    let tableBody = document.querySelector(".main-table");
 
     let dataRow = document.createElement("tr");
-    dataRow.classList.add("dataRow");
+    dataRow.classList.add("tr-data");
     tableBody.appendChild(dataRow);
 
     td = document.createElement("td");
@@ -113,7 +113,7 @@ function search() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchBar");
     filter = input.value.toUpperCase();
-    tr = document.getElementsByClassName("dataRow");
+    tr = document.getElementsByClassName("tr-data");
 
     for (i = 0, count = 0; i < tr.length; i++) {
         td = tr[i].getElementsByClassName("pokemon-name")[0];
@@ -123,9 +123,9 @@ function search() {
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
                 if (count++ % 2 == 0) {
-                    tr[i].style.background = "#113730";
+                    tr[i].style.background = "#ffffff";
                 } else {
-                    tr[i].style.background = "#1E6356";
+                    tr[i].style.background = "#d3d3d3";
                 }
             } else {
                 tr[i].style.display = "none";
@@ -138,4 +138,3 @@ function search() {
 window.onload = function() {
     getData();
 }
-   
