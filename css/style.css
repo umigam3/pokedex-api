@@ -81,20 +81,25 @@ tr:nth-child(odd) {
     outline: none;
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-}
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-}
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 768px) {
+    .stat-0 {
+        display: none;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        visibility: collapse;
+    }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 1250px) {
+    .stat-1, .stat-2, .stat-3, .stat-4, .stat-5, .stat-6 {
+        display: none;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        visibility: collapse;
+    }
 }
 
 .type-icon {
@@ -186,49 +191,3 @@ tr:nth-child(odd) {
 .type-fairy {
     background-color: #ee99ee;
 }
-
-@media only screen and (max-width: 1280px), (min-device-width: 768px) and (max-device-width: 1024px)  {
-
-    /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-
-    th {
-        display: none;
-    }
-
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-    tr {
-      margin: 0 0 1rem 0;
-    }
-      
-    tr:nth-child(odd) {
-      background: #ccc;
-    }
-    
-		td {
-			/* Behave  like a "row" */
-			border: none;
-			border-bottom: 1px solid #eee;
-			position: relative;
-			padding-left: 50%;
-		}
-
-		td:before {
-			/* Now like a table header */
-			position: absolute;
-			/* Top/left values mimic padding */
-			top: 0;
-			left: 6px;
-			width: 45%;
-			padding-right: 10px;
-			white-space: nowrap;
-		}
-    }

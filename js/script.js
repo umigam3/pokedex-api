@@ -37,9 +37,14 @@ function createMainTable() {
     
     tableHeaders = ["#", "Sprite", "Name", "Type", "Total", "HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"];
 
+    let i = 0;
     tableHeaders.forEach(header => {
         let th = document.createElement("th");
         th.innerHTML = header;
+        if(header == "Total" || i > 0) {
+            th.classList.add("stat-" + i);
+            i++;
+        }
         headerTr.appendChild(th);
     });
 
@@ -78,10 +83,13 @@ function addElement(pokemon) {
     pokemonStats = [totalStats, pokemon.stats[0].base_stat, pokemon.stats[1].base_stat, pokemon.stats[2].base_stat, pokemon.stats[3].base_stat,
         pokemon.stats[4].base_stat,pokemon.stats[5].base_stat];
 
+    let i = 0;
     pokemonStats.forEach(baseStat => {
         let td = document.createElement("td");
         td.innerHTML = baseStat;
+        td.classList.add("stat-" + i);
         dataRow.appendChild(td);
+        i++;
     })
 }
 
