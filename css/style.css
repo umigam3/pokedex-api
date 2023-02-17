@@ -21,6 +21,13 @@ body {
     text-shadow: 2px 2px 8px #000000;
     margin: 0 1%;
     text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.main-header__title a:visited, .main-header__title a:hover {
+    color: white;
+    text-decoration: none;
 }
 
 ul {
@@ -89,12 +96,12 @@ tr:nth-child(odd) {
 
 @media only screen and (max-width: 812px) {
     .main-content {
-        width: 100%;
+        width: 95%;
     }
 
     .navigation-bar {
-        width: 100%;
-        margin: 0 0;
+        width: 95%;
+        margin: 0 2.5%;
     }
 
     .main-header__title {
