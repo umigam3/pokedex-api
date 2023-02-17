@@ -41,9 +41,11 @@ function createMainTable() {
     tableHeaders.forEach(header => {
         let th = document.createElement("th");
         th.innerHTML = header;
-        if(header == "Total" || i > 0) {
+        if (header == "Total" || i > 0) {
             th.classList.add("stat-" + i);
             i++;
+        } else if (header == "Type") {
+            th.classList.add("pokemon-type");
         }
         headerTr.appendChild(th);
     });
@@ -60,10 +62,12 @@ function addElement(pokemon) {
 
     td = document.createElement("td");
     let idFormatted = formatNumber(pokemon.id, 4);
+    td.classList.add('pokemon-id');
     td.innerHTML = idFormatted;
     dataRow.appendChild(td);
     
     td = document.createElement("td");
+    td.classList.add('pokemon-sprite');
     td.appendChild(document.createElement('img')).src = pokemon.sprites.versions['generation-vii']['icons'].front_default;
     dataRow.appendChild(td);
     
@@ -108,6 +112,7 @@ function capitalizeString(string) {
 function insertTypes(types) {
 
     td = document.createElement("td");
+    td.classList.add('pokemon-type');
     let first = 1;
     types.forEach(type => {
         let span = document.createElement("span");

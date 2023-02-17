@@ -75,25 +75,28 @@ tr:nth-child(odd) {
 
 .content__input {
     background-color: #d3d3d3;
-}
+  }
 
 .content__input:focus {
     outline: none;
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 585px) {
+}
+
 @media only screen and (max-width: 768px) {
-    .stat-0 {
-        display: none;
-        width: 0;
-        height: 0;
-        opacity: 0;
-        visibility: collapse;
+    .main-content {
+        width: 100%;
+    }
+
+    .navigation-bar {
+        width: 100%;
+        margin: 0 0;
     }
 }
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+
 @media only screen and (max-width: 1250px) {
-    .stat-1, .stat-2, .stat-3, .stat-4, .stat-5, .stat-6 {
+    [class*="stat-"] {
         display: none;
         width: 0;
         height: 0;
