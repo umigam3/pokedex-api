@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Welcome to my [Pokémon Database](https://umigam3.github.io/pokedex-api/). I made this Pokédex mainly to learn more about API calls and how to implement those in JavaScript using <strong>Fetch API</stron>. All the data is extracted from an API called [PokéAPI](https://pokeapi.co/).
+Welcome to my [Pokémon Database](https://umigam3.github.io/pokedex-api/). I made this Pokédex mainly to learn more about API calls and how to implement those in JavaScript using <strong>Fetch API</strong>. All the data is extracted from an API called [PokéAPI](https://pokeapi.co/).
 
 In addition to that, I'm making this little project to get knowledge about structuring HTML pages and improving them with CSS. I implemented Bootstrap to familiarize with this framework.
 
