@@ -159,5 +159,5 @@ function search() {
 }
 
 window.onload = function() {
-    getData("https://pokeapi.co/api/v2/pokemon?limit=386&offset=0");
+    getData("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0");
 }
