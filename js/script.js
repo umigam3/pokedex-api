@@ -1,4 +1,5 @@
 function getData(url) {
+    
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -25,7 +26,17 @@ function getPokemonData(pokemon) {
 
 function createMainTable() {
 
-    let content = document.querySelector(".main-content");
+    let mainContent = document.querySelector(".main-content");
+
+    let searchContent = document.querySelector(".table-content");
+    if (searchContent) {
+        while (searchContent.firstChild) searchContent.removeChild(searchContent.firstChild);
+        searchContent.remove();
+    }
+    
+    let content = document.createElement("section");
+    content.classList.add("table-content");
+    mainContent.appendChild(content);
     
     let mainTable = document.createElement("table");
     mainTable.classList.add("main-table", "w-100", "table");
@@ -49,7 +60,6 @@ function createMainTable() {
         }
         headerTr.appendChild(th);
     });
-
 }
 
 function addElement(pokemon) {
@@ -121,7 +131,6 @@ function insertTypes(types) {
         span.innerHTML = type.type.name;
         td.appendChild(span);
     })
-
 }
 
 function search() {
@@ -148,7 +157,7 @@ function search() {
         }
     }
 }
-  
+
 window.onload = function() {
-    getData("https://pokeapi.co/api/v2/pokemon?limit=396&offset=0");
+    getData("https://pokeapi.co/api/v2/pokemon?limit=386&offset=0");
 }
