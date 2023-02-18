@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #635985 !important;
+    background: #635985;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
@@ -20,18 +20,11 @@ body {
     font-family: 'Roboto', sans-serif !important;
     text-shadow: 2px 2px 8px #000000;
     margin: 0 1%;
-    text-align: center;
-    text-decoration: none;
-    color: white;
 }
 
 .main-header__title a:visited, .main-header__title a:hover {
     color: white;
     text-decoration: none;
-}
-
-ul {
-    list-style-type: none;
 }
 
 .navigation-bar {
@@ -45,7 +38,6 @@ ul {
 }
 
 .main-content {
-    background-color: white;
     padding: 2%;
     width: 65%;
     border-radius: 15px;
@@ -80,17 +72,17 @@ tr:nth-child(odd) {
     background-color: #d3d3d3;
 }
 
-.content__searchbar {
+.main-content__searchbar {
     border-radius: 20px;
     padding: 10px;
     background-color: #d3d3d3;
 }
 
-.content__input {
+.searchbar__input {
     background-color: #d3d3d3;
   }
 
-.content__input:focus {
+.searchbar__input:focus {
     outline: none;
 }
 
@@ -110,7 +102,7 @@ tr:nth-child(odd) {
 }
 
 @media only screen and (max-width: 1250px) {
-    [class*="stat-"] {
+    [class*="data__stat-"], [class*="header__stat-"] {
         display: none;
         width: 0;
         height: 0;
