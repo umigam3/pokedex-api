@@ -12,6 +12,7 @@ function getData(url) {
     data.results.forEach(singleObject => {
       getPokemonData(singleObject)
     });
+    sortTable(0, 2);
   })
   .catch(err => {
     console.error("Request Failed", err);
@@ -77,7 +78,12 @@ function createMainTable() {
     } else if (header == "Type") th.classList.add("header__pokemon-type");
     else if (header == "Name") th.classList.add("header__pokemon-name");
     else if (header == "Sprite") th.classList.add("header__pokemon-sprite");
-    else if (header == "#") th.classList.add("header__pokemon-id");
+    else if (header == "#") {
+      th.classList.add("header__pokemon-id");
+      let btn = document.createElement("button");
+      btn.classList.add("button-id");
+      headerTr.appendChild(btn);
+    }
     headerTr.appendChild(th);
   });
 }
@@ -204,6 +210,84 @@ function search() {
         }
       } else {
         tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+/**
+ * Order table by column.
+ * 
+ * @param {number} index Determines wich column to order
+ * @param {bool} mode Mode == 1 -> Order alphabetically, Mode == 2 -> Order numerically
+ */
+function sortTable(index, mode) {
+  console.log("soarting table...")
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementsByClassName("table-content__main-table")[0];
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("td")[index];
+      y = rows[i + 1].getElementsByTagName("td")[index];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (mode == 1) {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else {
+          if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }    
+        }
+      } else if (dir == "desc") {
+        if (mode == 1) {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else {
+          if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }    
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
       }
     }
   }
