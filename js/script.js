@@ -71,12 +71,7 @@ $(document).ready(function(){
       } else if (header == "Type") th.classList.add("header__pokemon-type");
       else if (header == "Name") th.classList.add("header__pokemon-name");
       else if (header == "Sprite") th.classList.add("header__pokemon-sprite");
-      else if (header == "#") {
-        th.classList.add("header__pokemon-id");
-        let icon = document.createElement("i");
-        icon.classList.add("fas", "fa-sort", "order-id");
-        th.appendChild(icon);
-      }
+      else if (header == "#") th.classList.add("header__pokemon-id");
       headerTr.appendChild(th);
     });
   }
@@ -295,12 +290,6 @@ $(document).ready(function(){
     else if (clickedClass == 'alola') url = "https://pokeapi.co/api/v2/pokemon?limit=86&offset=721";
     else url = "https://pokeapi.co/api/v2/pokemon?limit=807&offset=0";
     getData(url);
-  });
-
-  $(".order-id").on('click', () => {
-    event.stopPropagation();
-    console.log("order clicked");
-    sortTable(0, 2);
   });
 
   getData("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0");
